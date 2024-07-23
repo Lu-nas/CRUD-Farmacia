@@ -11,25 +11,23 @@ import com.generation.farmacia.repository.CategoriaRepository;
 
 @Service
 public class CategoriaService {
-	
+
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-	
-	 public List<Categoria> findAll() {
-	        return categoriaRepository.findAll();
-	    }
 
-	    public Optional<Categoria> findById(Long id) {
-	        return categoriaRepository.findById(id);
-	    }
+	public List<Categoria> findAll() {
+		return categoriaRepository.findAll();
+	}
 
-	    public Categoria save(Categoria categoria) {
-	        return categoriaRepository.save(categoria);
-	    }
+	public Optional<Categoria> findById(Long id) {
+		return categoriaRepository.findById(id);
+	}
 
-	    public void deleteById(Long id) {
-	        categoriaRepository.deleteById(id);
-	    }
-	
-	
+	public Categoria save(Categoria categoria) {
+		return categoriaRepository.save(categoria);
+	}
+
+	public void deleteById(Long id) {
+		categoriaRepository.deleteById(id);
+	}
 }
