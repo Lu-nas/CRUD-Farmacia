@@ -3,6 +3,7 @@ package com.farmacia.crudfarmacia.model;
 import java.math.BigDecimal;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 
 @Entity
@@ -17,8 +18,12 @@ public class Produto {
 
     private String descricao;
 
+    @NotNull
+    @DecimalMin(value = "0.01", inclusive = true)
     private BigDecimal preco;
 
+    @NotNull
+    @Min(0)
     private Integer quantidade;
 
      // getters e setters

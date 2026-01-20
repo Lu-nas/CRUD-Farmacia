@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import com.farmacia.crudfarmacia.model.Produto;
 import com.farmacia.crudfarmacia.service.ProdutoService;
 
+import jakarta.validation.Valid;
+
+
+
 
 @RestController
 @RequestMapping("/produtos")
@@ -34,7 +38,7 @@ public class ProdutoController {
                 : ResponseEntity.notFound().build();
     }
     @PostMapping
-    public ResponseEntity<Produto> criar(Produto produto){
+    public ResponseEntity<Produto> criar(@Valid @RequestBody Produto produto){
         Produto salvo = produtoService.salvar(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }
