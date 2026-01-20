@@ -2,7 +2,7 @@ package com.farmacia.crudfarmacia.service;
 
 import java.util.List;
 
-import org.springframework.lang.NonNull;
+
 import org.springframework.stereotype.Service;
 
 import com.farmacia.crudfarmacia.model.Produto;
@@ -18,19 +18,19 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    public List<Produto> listarToodos(){
+    public List<Produto> listarTodos(){
         return produtoRepository.findAll();
     }
 
-    public Produto buscarPorId(@NonNull Long id) {
+    public Produto buscarPorId( Long id) {
         return produtoRepository.findById(id).orElse(null);
     }
 
-    public Produto salvar(@NonNull Produto produto){
+    public Produto salvar( Produto produto){
         return produtoRepository.save(produto);
     }
 
-    public void deletar(@NonNull Long id){
+    public void deletar(Long id){
         produtoRepository.deleteById(id);
     }
 
