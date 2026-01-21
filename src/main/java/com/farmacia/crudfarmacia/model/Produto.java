@@ -14,16 +14,20 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O nome é obrigatório")
+    @Size(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres")
     private String nome;
 
+    @NotBlank(message = "A descrição é obrigatória")
+    @Size(min = 5, max = 255, message = "A descrição deve ter entre 5 e 255 caracteres")
     private String descricao;
 
-    @NotNull
-    @DecimalMin(value = "0.01", inclusive = true)
+    @NotNull(message = "O preço é obrigatório")
+    @Positive(message = "O preço deve ser maior que zero")
     private BigDecimal preco;
 
-    @NotNull
-    @Min(0)
+    @NotNull(message = "A quantidade é obrigatória")
+    @PositiveOrZero(message = "A quantidade não pode ser negativa")
     private Integer quantidade;
 
      // getters e setters
@@ -66,10 +70,6 @@ public class Produto {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
-    }
-
-   
-
-    
+    }  
     
 }

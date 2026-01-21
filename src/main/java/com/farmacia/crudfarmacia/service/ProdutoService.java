@@ -2,14 +2,11 @@ package com.farmacia.crudfarmacia.service;
 
 import java.util.List;
 
-
 import org.springframework.stereotype.Service;
 
 import com.farmacia.crudfarmacia.model.Produto;
 import com.farmacia.crudfarmacia.repository.ProdutoRepository;
-
-
-
+ 
 @Service
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
@@ -32,7 +29,6 @@ public class ProdutoService {
 
     public void deletar(Long id){
         produtoRepository.deleteById(id);
-    }
-
+    } 
 }
 

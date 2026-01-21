@@ -5,17 +5,13 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.*;
-
-
+import org.springframework.web.bind.annotation.*; 
 import com.farmacia.crudfarmacia.model.Produto;
 import com.farmacia.crudfarmacia.service.ProdutoService;
 
 import jakarta.validation.Valid;
-
-
-
-
+ 
+ 
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -31,22 +27,22 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Produto> buscarPorId( Long id){
+    public ResponseEntity<Produto> buscarPorId( @PathVariable Long id){
         Produto produto = produtoService.buscarPorId(id);
-         return produto != null
-                ? ResponseEntity.ok(produto)
-                : ResponseEntity.notFound().build();
+        return produto != null
+            ? ResponseEntity.ok(produto)
+            : ResponseEntity.notFound().build();
     }
+
     @PostMapping
     public ResponseEntity<Produto> criar(@Valid @RequestBody Produto produto){
         Produto salvo = produtoService.salvar(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }
 
-     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar( Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         produtoService.deletar(id);
         return ResponseEntity.noContent().build();
-    }
-    
+    }  
 }
