@@ -1,6 +1,8 @@
 package com.farmacia.crudfarmacia.exception;
 
 import java.time.LocalDateTime;
+import java.util.Map;
+
 
 public class ApiError {
     private LocalDateTime timestamp;
@@ -8,32 +10,28 @@ public class ApiError {
     private String error;
     private String message;
     private String path;
+    private Map<String, String> details;
 
-    public ApiError(int status, String error, String message, String path) {
+    public ApiError(int status, String error, String message, Map<String,String> details, String path) {
         this.timestamp = LocalDateTime.now();
         this.status = status;
         this.error = error;
         this.message = message;
+        this.details = details;
         this.path = path;
+        
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
+    // getters
+    public LocalDateTime getTimestamp() {return timestamp;}
 
-    public int getStatus() {
-        return status;
-    }
+    public int getStatus() {return status;}
 
-    public String getError() {
-        return error;
-    }
+    public String getError() {return error;}
 
-    public String getMessage() {
-        return message;
-    }
+    public String getMessage() {return message;}
 
-    public String getPath() {
-        return path;
-    }
+    public String getPath() {return path;}
+
+    public Map<String, String> getDetails() { return details; }
 }
