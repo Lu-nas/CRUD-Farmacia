@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-
-
+ 
 @Entity
 @Table(name = "produtos")
 public class Produto {
@@ -30,7 +29,7 @@ public class Produto {
     @PositiveOrZero(message = "A quantidade não pode ser negativa")
     private Integer quantidade;
 
-     // getters e setters
+    // getters e setters
      
     public Long getId() {
         return id;
@@ -70,6 +69,5 @@ public class Produto {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
-    }  
-    
+    }   
 }

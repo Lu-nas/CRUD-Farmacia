@@ -29,15 +29,22 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public ResponseEntity<Produto> buscarPorId( @PathVariable Long id){
         Produto produto = produtoService.buscarPorId(id);
-        return produto != null
-            ? ResponseEntity.ok(produto)
-            : ResponseEntity.notFound().build();
+        return  ResponseEntity.ok(produto);
     }
 
     @PostMapping
     public ResponseEntity<Produto> criar(@Valid @RequestBody Produto produto){
         Produto salvo = produtoService.salvar(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
+    }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> atualizar(
+        @PathVariable Long id,
+        @Valid @RequestBody Produto produtoAtualizado) {
+            
+            Produto atualizado = produtoService.atualizar(id,produtoAtualizado);
+            return ResponseEntity.ok(atualizado);
     }
 
     @DeleteMapping("/{id}")
