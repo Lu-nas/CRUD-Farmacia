@@ -1,0 +1,50 @@
+# CRUD-Farmacia
+
+Sistema CRUD de uma farmácia, desenvolvido em Spring Boot,  demonstra a evolução completa, 
+desde a configuração inicial até a implementação final de um sistema funcional com validações e tratamento de erros.
+
+
+- Spring Boot Web
+- JPA/Hibernate
+- Validações com Bean Validation
+- Tratamento global de exceções
+- Arquitetura em camadas (Controller, Service, Repository)
+
+---
+## Estrutura do projeto
+
+O projeto segue a arquitetura em camadas:
+
+- `model` — Entidades JPA
+- `repository` — Interfaces de acesso a dados
+- `service` — Regras de negócio
+- `controller` — Endpoints REST
+- `exception` — Tratamento global de erros e validações
+
+---
+
+## Funcionalidades
+
+- Listar todos os produtos 
+- Buscar produto por ID
+- Criar novo produto com validações
+- Deletar produto
+- Tratamento de erros detalhado em resposta JSON
+
+---
+
+## Tecnologias utilizadas
+
+- **Java 17+**
+- **Spring Boot 3**
+- **Hibernate / JPA**
+- **Maven**
+- **Postman** (para os testes da API)
+
+---
+
+## Como Rodar o projeto localmente
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Lu-nas/CRUD-Farmacia.git
